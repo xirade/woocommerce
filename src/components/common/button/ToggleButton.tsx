@@ -4,7 +4,7 @@ import styled from "styled-components";
 interface Props {
   children?: React.ReactNode;
   className?: string;
-  onChangeFunction?: React.MouseEventHandler<HTMLButtonElement>;
+  onChangeFunction?: React.ChangeEventHandler<HTMLInputElement>;
   isClicked?: boolean;
   color?: string;
 }
@@ -14,7 +14,7 @@ const ToggleButton = (props: Props) => {
   return (
     <Wrapper>
       <label
-        style={{ background: isClicked && color }}
+        style={{ background: `${isClicked && color}` }}
         className="react-switch"
       >
         <input
@@ -45,7 +45,7 @@ const Wrapper = styled.div`
     position: absolute;
     visibility: hidden;
   }
-  
+
   .react-switch {
     cursor: pointer;
     width: 100px;
@@ -54,7 +54,7 @@ const Wrapper = styled.div`
     position: relative;
     transition: font background-color 0.2s;
   }
-  
+
   .react-switch .react-switch-button {
     position: absolute;
     z-index: 1;
@@ -66,22 +66,22 @@ const Wrapper = styled.div`
     background: rgba(247, 242, 249, 0.5);
     box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
   }
-  
+
   .react-switch-checkbox:checked + .react-switch-button {
     left: calc(100% - 2px);
     transform: translateX(-100%);
   }
-  
+
   .react-switch-checkbox:active + .react-switch-button {
     width: 60px;
   }
-  
+
   .react-switch-labels {
     display: relative;
     z-index: 0;
     height: 100%;
   }
-  
+
   .react-switch-labels span {
     position: absolute;
     display: flex;

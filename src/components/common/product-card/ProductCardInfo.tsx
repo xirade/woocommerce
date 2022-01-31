@@ -7,7 +7,7 @@ interface Props {
   name: string;
   price: string;
   value: boolean;
-  onSwitch: React.MouseEventHandler<HTMLButtonElement>;
+  onSwitch: React.ChangeEventHandler<HTMLInputElement>;
   onClickFunction: React.MouseEventHandler<HTMLButtonElement>;
 }
 

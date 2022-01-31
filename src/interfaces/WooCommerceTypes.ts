@@ -96,7 +96,7 @@ export interface MetaDatum {
   value: string;
 }
 
-interface LineItem {
+export interface LineItem {
   id: number;
   name: string;
   product_id: number;
@@ -110,7 +110,7 @@ interface LineItem {
   taxes: any[];
   meta_data: MetaData[];
   sku: string;
-  price: number;
+  price: string;
 }
 
 interface ShippingLine {

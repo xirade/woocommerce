@@ -48,7 +48,7 @@ const CartItem = (props: Props) => {
         incrementFunction={increment}
       />
       <div>
-        ₪{calculatePrice(props.lineItem.quantity, props.lineItem.price!)}
+        ₪{calculatePrice(props.lineItem.quantity, String(props.lineItem.price!))}
       </div>
     </Wrapper>
   );

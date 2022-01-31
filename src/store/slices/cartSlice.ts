@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { LineItem } from "../../utils/types/wooCommerceTypes";
+import { LineItem } from "../../interfaces/WooCommerceTypes";
 
 interface CartState {
   lineItems: LineItem[];

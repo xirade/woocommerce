@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { GetStaticProps } from "next";
 import { fetchWooCommerceProducts } from "../api/wooCommerce.api";
 import { Product } from "../interfaces/WooCommerceTypes";
-import { Navbar } from ".";
 import Page from "../layout/Page";
 import ProductGrid from "../components/ui/ProductGrid";
 

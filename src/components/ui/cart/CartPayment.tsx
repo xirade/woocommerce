@@ -17,7 +17,7 @@ const CardPayment = (props: Props) => {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleFormSubmit = async (e: React.MouseEvent<HTMLFormElement>) => {
+  const handleFormSubmit = async (e: any) => {
     e.preventDefault();
 
     // clear Redux cart
@@ -65,7 +65,6 @@ const CardPayment = (props: Props) => {
           </div>
           <CTA
             onClickFunction={handleFormSubmit}
-            type="submit"
             disabled={!props.lineItems.length}
           >
             PAY NOW

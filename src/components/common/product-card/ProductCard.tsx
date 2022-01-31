@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Image from "next/image";
-import { Product } from "../interface/WooCommerceTypes";
+import { Product } from "../../../interfaces/WooCommerceTypes";
 import { useAppDispatch } from "../../../store/hooks";
 import { addLineItem } from "../../../store/slices/cartSlice";
 import ProductCardInfo from "./ProductCardInfo";
@@ -17,7 +17,7 @@ const ProductCard = (props: Props) => {
 
   const dispatch = useAppDispatch();
 
-  const lineItem = {
+  const lineItem: any = {
     name: product.name,
     product_id: product.id,
     quantity: 1,
@@ -46,6 +46,7 @@ const ProductCard = (props: Props) => {
         />
       </ImageContainer>
       <ProductCardInfo
+        value={value}
         name={product.name}
         price={itemPrice}
         onSwitch={handleSwitch}

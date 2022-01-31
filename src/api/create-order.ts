@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { createWooCommerceOrder } from "./wooCommerceApi";
+import { createWooCommerceOrder } from "./wooCommerce.api";
 import { Order } from "../interfaces/WooCommerceTypes";
 
 type Data = {
@@ -16,7 +16,7 @@ export default async function handler(
   try {
     const response = await createWooCommerceOrder(data);
     res.json({ order: response.data });
-  } catch (error) {
-    throw new Error(error);
+  } catch (error: any) {
+    if (error) throw new Error(error);
   }
 }
