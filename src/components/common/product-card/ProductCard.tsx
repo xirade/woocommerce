@@ -1,8 +1,11 @@
 import styled from "styled-components";
 import Image from "next/image";
 import { Product } from "../../../interfaces/WooCommerceTypes";
-import { useAppDispatch } from "../../../store/hooks";
-import { addLineItem } from "../../../store/slices/cartSlice";
+import { useAppDispatch, useAppSelector } from "../../../store/hooks";
+import {
+  addLineItem,
+  decrementLineItemQuantity
+} from "../../../store/slices/cartSlice";
 import ProductCardInfo from "./ProductCardInfo";
 import { useState } from "react";
 
@@ -15,6 +18,7 @@ const ProductCard = (props: Props) => {
   const [value, setValue] = useState(false);
   const [itemPrice, setItemPrice] = useState(product.sale_price);
 
+  const cartState = useAppSelector((state) => state.cart);
   const dispatch = useAppDispatch();
 
   const lineItem: any = {
@@ -35,6 +39,16 @@ const ProductCard = (props: Props) => {
     dispatch(addLineItem(lineItem));
   };
 
+  const handleDecrement = () => {
+    dispatch(decrementLineItemQuantity(lineItem));
+  };
+
+  const currQuantity: any =
+    cartState.lineItems.length &&
+    cartState.lineItems.find(
+      (state) => state.product_id === lineItem.product_id
+    )?.quantity;
+
   return product.images[0]?.src ? (
     <Card>
       <ImageContainer>
@@ -48,9 +62,11 @@ const ProductCard = (props: Props) => {
       <ProductCardInfo
         value={value}
         name={product.name}
+        quantity={currQuantity}
         price={itemPrice}
         onSwitch={handleSwitch}
         onClickFunction={handleIncrement}
+        onDecrementFunction={handleDecrement}
       />
     </Card>
   ) : (

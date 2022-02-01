@@ -43,6 +43,7 @@ const CartItem = (props: Props) => {
       <button onClick={remove}>X</button>
       <div>{props.lineItem.name}</div>
       <CartQty
+        key="cartqty1"
         quantity={props.lineItem.quantity}
         decrementFunction={decrement}
         incrementFunction={increment}
@@ -80,7 +81,7 @@ const Wrapper = styled.div`
   }
   button {
     background: none;
-    padding: 5px 10px;
+    padding: 6px 12px;
     border: 1px solid ${(props) => props.theme.colors.primary};
     border-radius: 3px;
     cursor: pointer;
