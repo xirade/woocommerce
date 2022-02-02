@@ -16,6 +16,14 @@ export default function Page(props: Props) {
         <title>{title}</title>
         <meta name="description" content={description} />
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Cabin&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Raleway&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <Header />
       <main>{children}</main>
